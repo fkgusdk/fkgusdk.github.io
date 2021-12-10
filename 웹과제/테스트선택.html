@@ -1,0 +1,141 @@
+<HTML:5>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>테스트 선택</title>
+        <style>
+            body{
+                background-color: #FFD966;
+                color:#041C3A;
+            }
+            #tit{
+                width: 40%;
+                margin: auto;
+                margin-top: 3%;
+                background-color:#041C3A;
+                color: #FFD966;
+                font-size: 350%;
+                font-style: italic;
+                text-align:center;
+                padding: 1.5%;
+                margin-bottom: 1%;
+            }
+            #testType{
+                margin:auto;
+            }
+            td{
+                padding:40px;
+            }
+            button{
+                border-style: hidden;
+                background-color:#FFD966;
+            }
+            #free:hover, #pay:hover{
+                box-shadow: 0 0 10px maroon, 0 0 25px red, 0 0 5px maroon;
+            }
+            #free{
+                width: 350px; height: 450px;
+                border-style: solid;
+                border-width: 4px;
+                border-color: #041C3A;
+                background-image: url("무료테스트배경.png");
+                background-size: cover;
+                text-align:center;
+                color: #041C3A;
+                font-size: 20px;
+                padding: 10px;
+            }
+            #pay{
+                width: 350px; height: 450px;
+                border-style: solid;
+                border-width: 4px;
+                border-color: #041C3A;
+                background-image: url("유료테스트배경.png");
+                background-size: cover;
+                text-align:center;
+                color: #041C3A;
+                font-size: 20px;
+                padding: 10px;
+            }
+            p.big{
+                font-size:50px;
+            }
+            p{
+                padding: 10px;
+                backdrop-filter: blur(30px);
+                color: #041C3A;
+                font-size:18px;
+            }
+            exp{
+                font-size: 13px;
+            }
+            #goIntro{
+                width:5%;
+            position:fixed;
+            top:10%; right: 10%;
+            text-decoration: none;
+            padding: 2px;
+            border: solid 2px #FFD966;
+            color: maroon;
+            text-align:center;
+          }
+          #goIntro:hover{
+            border: solid 2px maroon;
+          }
+          #goIntro div{
+            margin:auto;
+            width: 0px;height: 0px;
+            border-top:30px solid transparent;
+            border-bottom:30px solid transparent;
+            border-left: 40px solid none;
+            border-right: 40px solid maroon;
+          }
+        </style>
+    </head>
+    <body>
+        <div id="tit">
+            <strong>Service Type</strong>
+        </div>
+        <table id="testType">
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="무료서비스.html">
+                            <button type=button>
+                                <div id="free">
+                                    <p class="big"><strong>Free Service</strong></p>
+                                    <p><strong>If you select this service,<br>
+                                    You'll meet checklist based on KCDC.<br>
+                                    <exp>( Korea Centers for Diseas Control and Prevention )</exp><br>
+                                    Answer the questions and Check the result.<br></strong></p>
+                                    <p class="big"><strong style="font-style:italic"> 0 $ </strong></p>
+                                </div>
+                            </button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="유료서비스.html">
+                            <button type=button>
+                                <div id="pay">
+                                    <p class="big"><strong>Paid Service</strong></p>
+                                    <p><strong>If you draw picture following process,<br>
+                                    Hospital will diagnose your condition from picture you draw.<br>
+                                    You can get the report through e-mail in 2 days.</strong></p>
+                                    <p class="big"><strong style="font-style:italic"> 4 $ </strong></p>
+                                </div>
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a id="goIntro" href="인트로 페이지.html">
+            <div></div>
+            Home
+        </a>
+    </body>
+    </html>
+</HTML:5>
