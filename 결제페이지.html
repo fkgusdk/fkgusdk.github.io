@@ -1,0 +1,102 @@
+<HTML:5>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>결제 페이지</title>
+        <style>
+            body {
+                background-color: #FFD966;
+                color: #041C3A;
+            }
+            #tit {
+                font-size: 500%;
+                font-style:italic;
+                text-align: center;
+                margin-top: 3%;
+            }
+            #notice{
+                width: 50%;
+                height: 60%;
+                margin:auto;
+                margin-top: 3%;
+                border-width : 10px;
+                border-style : solid;
+                border-radius : 100px 0px;
+                border-color: #041C3A;
+                text-align:center;
+                font-size: 130%;
+                padding-top: 2%;
+            }
+            @keyframes textColorAnimation {
+                0% {  color : blue;}
+                50% {  color : green;}
+                100% { color : red;}
+            }
+            #button{
+                background-color:black;
+                padding: 2%;
+                border-radius : 10px 10px;
+                text-decoration: none;
+            }
+            #button:hover{
+                text-shadow: 0px 0px 4px goldenrod, 2px 2px 4px orange, 0px 0px 4px goldenrod;
+            }
+            #notice span{
+                animation-name: textColorAnimation;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                font-style: italic;
+                font-size: 130%;
+                padding: 10px;
+            }
+            #goIntro{
+            width:8%;
+            position:fixed;
+            top:10%; right: 10%;
+            text-decoration: none;
+            padding: 2px;
+            border: solid 2px #FFD966;
+            color: maroon;
+            text-align:center;
+          }
+          #goIntro:hover{
+            border: solid 2px maroon;
+            border-radius: 22px 22px 20px 0px;
+          }
+          #goIntro div{
+            margin:auto;
+            width: 0px;height: 0px;
+            border-top:30px solid transparent;
+            border-bottom:30px solid transparent;
+            border-left: 40px solid none;
+            border-right: 40px solid maroon;
+          }
+        </style>
+    </head>
+    <body>
+        <div id="tit">
+            <strong>Payment</strong>
+        </div>
+        <div id="notice">
+            <h1>4$</h1>
+            <br>
+            Thank you for using our survice.<br>
+            You can check your mind-health from this test in 4$.<br>
+            If you submit your sex, age, e-mail adresss and picture you draw,<br>
+            the result report will be sent to your e-mail within 2 days.<br>
+            Pay to us, and go to check now.
+            <br><br><br>
+            <div>
+                <a href ="유료서비스.html" id="button"><span>I already pay.</span></a>
+            </div>
+        </div>
+        <a id="goIntro" href="테스트선택.html">
+            <div></div>
+            choice agin
+        </a>
+    </body>
+    </html>
+</HTML:5>

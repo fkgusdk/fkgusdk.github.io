@@ -1,0 +1,136 @@
+<!--'Alt + B'로 웹브라우저를 실행-->
+<HTML:5>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 인트로 페이지 </title>
+
+        <style>
+            body { 
+                background-color : #041C3A;
+                color :#FFD966;
+            }
+            #backImage{
+                height:100%; width:44%;
+                background-image: url("코로나.png");
+                background-size:cover;
+                background-position: right;
+                position:fixed;
+                bottom:0px; right:0px;
+                background-repeat: no-repeat;
+                opacity:0.3;
+                text-align:center;
+            }
+            #welcome {
+                font-size: 170%;
+                margin-left: 20%;
+                margin-top: 13%;
+                position: absolute;
+            }
+            #siteName {
+                margin-left: 20%;
+                margin-top: 15%;
+                position: absolute;
+                font-size: 360%;
+                animation-name: neon;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+            }
+            #introduce {
+                font-size: 110%;
+                margin-top: 21%;
+                margin-left: 20%;
+                position: absolute;
+            }
+            #go{
+                width: 35%;
+                margin-top:9%;
+                font-size: 25px;
+                position: absolute;
+                margin-left: 54%;
+            }
+            a{
+                display:block;
+                margin: 20%;
+                color:#FFD966;
+                text-decoration: none;
+                font-weight:bold;
+            }
+            a:hover{
+                text-shadow: 0px 0px 40px dodgerblue, 0 0 10px darkblue, 0px 0px 40px dodgerblue;
+            }
+            @keyframes neon{
+                from{
+                    text-shadow: 0px 0px 10px dodgerblue, 0 0 2px darkblue, 0px 0px 10px dodgerblue;
+                }
+                to{
+                    text-shadow: 0px 0px 40px dodgerblue, 0 0 10px darkblue, 0px 0px 40px dodgerblue;
+                }
+            }
+            </style>
+            <script>
+                function GetCookie (name) {
+                    var pairs = document.cookie.split(";"); // 쿠키문자열을 ;을 경계로 분할
+                    for(var i=0; i<pairs.length; i++) {
+                        var pair = pairs[i].trim(); // 쿠키 앞뒤의 빈칸 제거
+                        var unit = pair.split("=");
+                        if(unit[0] == name)
+                            return unescape(unit[1]);
+                    }
+                    return null;
+                }
+                function SetCookie (name, value, expireDate) {
+                    var cookieStr = name + "=" + escape(value) +
+                        ((expireDate == null)?"":("; expires=" + expireDate.toGMTString()));
+                        document.cookie = cookieStr;
+                }
+                </script>
+    </head>
+    <body>
+        <script>
+            var username = GetCookie("username");
+                var count = GetCookie("count");
+                var expire = new Date (); // 현재 시간
+                if (username == null) {
+                    count = 0;
+                    username = prompt("Please enter nickname you'll use in this website","");
+                    if (username == null) {username = "Unknown";}
+                    else {
+                        expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000)); // 1년후
+                        SetCookie("username",username,expire);
+                    }
+                }
+                count++;
+                expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000)); // 1년후
+                SetCookie("count",count,expire);
+                document.write("Your Nickname : "+ username +"<br>");
+                if(count==1){
+                    document.write("It's your first visit! Please read the introduction below :)");
+                }
+                else if(count<5){
+                    document.write(count+"th visit");
+                }
+                else{
+                    document.write(count+"th visit!<br>Thank you for loving this website :)");
+                }
+        </script>
+        <div id="backImage"></div>
+        <div id="welcome">Welcome, we are</div>
+        <div id="siteName"><strong>Blue Corona</strong></div>
+        <div id="introduce">
+            This site was made for people who suffer from "Corona Blue".<br><br>
+            &lt;What's COVID-BLUE?&gt;<br>includes information about cause, symptoms and seriousness of Corona Blue.<br><br>
+            &lt;Self-diagnosis&gt;<br>helps you to get Free or Paid service for Self-diagnosis.<br><br>
+            &lt;Tips&gt;<br>provides tips for overcoming Corona Blue <br>and space to share your special tips for others.
+        </div>
+        <div id="go">
+            <a href="코로나블루에대하여.html">&gt;&gt; What's COVID-BLUE?</a>
+            <a href="테스트선택.html">&gt;&gt; Diagnosis Service</a>
+            <a href="극복법.html">&gt;&gt; Overcoming Tips</a>
+        </div>
+    </body>
+    </html>
+</HTML:5>
