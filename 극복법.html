@@ -1,0 +1,81 @@
+<HTML:5>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body{
+                background-color:#041C3A;
+                color:#FFD966;
+            }
+            #cont{
+                width:80%; height:80%;
+                margin:auto;
+                margin-top: 5%;
+            }
+            #box1{
+                height:100%; width:30%;
+                padding:3%;
+                font-size: 220%;
+                text-shadow: 0px 0px 50px seagreen, 0 0 50px darkgreen, 0px 0px 50px seagreen;
+            }
+            #box2{
+                height:100%;width:70%;
+                border-left-width: 5px;
+                border-left-color:#FFD966;
+                border-left-style: solid;
+                padding: 1.5%;
+            }
+            iframe{
+                margin-left: 10%;
+                border-style:hidden;
+            }
+            #goIntro{
+                width:6%;
+                background-color: #010e1f;
+                position:fixed;
+                bottom:2%; right: 1%;
+                text-decoration: none;
+                color: #FFD966;
+                text-align:center;
+                padding:5px; padding-top:7px;
+                border-radius: 10px 10px;
+          }
+          #goIntro:hover{
+            box-shadow: 0px 0px 40px dodgerblue, 0 0 10px darkblue, 0px 0px 40px dodgerblue;
+          }
+          #goIntro div{
+            margin:auto;
+            width: 0px;height: 0px;
+            border-top:30px solid transparent;
+            border-bottom:30px solid transparent;
+            border-left: 40px solid none;
+            border-right: 40px solid #FFD966;
+          }
+
+        </style>
+    </head>
+    <body>
+        <table id="cont">
+            <tbody>
+                <tr>
+                    <td id="box1"><strong style="font-size:250%;">&nbsp;Tips&nbsp;</strong><br><br>
+                        for overcoming
+                    </td>
+                    <td id="box2"> 
+                        <iframe src="rightframe.html" name="right" width=100% height=100%>
+                        </iframe>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a id="goIntro" href="인트로 페이지.html">
+            <div></div>
+            Home
+        </a>
+    </body>
+    </html>
+</HTML:5>
