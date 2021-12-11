@@ -22,54 +22,55 @@
                 font-style:italic;
                 text-shadow: 5px 5px 10px brown;
             }
-            #checklist{ /* 체크리스트를 담은 틀의 스타일 */
+            #checklist{ /* 체크리스트를 담을 틀 (내부에 체크리스트 폼과 제출 버튼 있음)의 스타일 */
                 overflow: auto; /* 필요하면 스크롤러 만들기 */
                 width: 40%; height:60%;
                 border:solid 4px #041C3A;
-                float: left;
+                float: left; /* 페이지의 왼쪽에 배치 */
                 margin-left: 6.5%;
                 margin-top: 5%;
                 border-radius : 20px 20px;
             }
-            #checkTit{
+            #checkTit{ /* 체크리스트 제목의 스타일 */
                 margin-top: 5%;
                 font-size: 250%;
                 text-align:center;
                 font-weight: bolder;
             }
-            #result{
+            #result{ /* 결과를 보여주는 틀의 스타일 */
                 width: 40%; height:60%;
                 border:solid 4px #041C3A;
                 background: #041C3A;
-                float: right;
+                float: right; /* 페이지의 오른쪽에 배치 */
                 margin-right:6.5%;
                 margin-top: 5%;
                 color:#FFD966;
                 text-align:center;
                 border-radius : 20px 20px;
             }
-            form{
+            form{ /* 체크리스트 담는 폼의 스타일 */
                 width:85%;
                 margin:auto;
                 margin-top:5.5%;
                 margin-bottom:5%;
             }
-            span{
+            span{ /*span들의 스타일*/
                 font-size: 150%;
                 font-weight:bolder;
             }
-            ol li{
+            ol li{ /* 리스트 행들의 스타일 */
                 font-weight: bolder;
                 list-style-type:decimal;
             }
-            ol li:hover{
+            ol li:hover{ /* 리스트의 각 행에 마우스 올라가면 적용될 스타일 (배경색 바뀜)*/
                 background-color: lightseagreen;
             }
-            label{
+            label{ /* 각 질문에 대한 선택지 한 줄에 배정 */
                 display:inline-block;
             }
-            label:hover{
-                background-color:lightslategray;
+            label:hover{ /* 선택지에 마우스 올라가면 적용될 스타일 (글자색, 스타일 바뀜)*/
+                font-style: italic;
+                color: red;
             }
             hr{
                 height:1px;
