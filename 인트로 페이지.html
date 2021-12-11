@@ -112,17 +112,17 @@
                 expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000)); // 1년후
                 SetCookie("count",count,expire);
             
-                document.write("Your Nickname : "+ username +"<br>");
+                document.write("Hello "+ username +"!<br>");
             
                 //방문 횟수에 따라 인사말 달라지게 만들기
                 if(count==1){
                     document.write("It's your first visit! Please read the introduction below :)");
                 }
                 else if(count<5){
-                    document.write(count+"th visit");
+                    document.write("It's your " + count + "th visit");
                 }
                 else{
-                    document.write(count+"th visit!<br>Thank you for loving this website :)");
+                    document.write("It's your " + count + "th visit! Thank you for loving this website :)");
                 }
         </script>
         <div id="Intro">
