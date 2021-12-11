@@ -21,7 +21,7 @@
                 margin-left:5%;
                 margin-top: 1.5%;
             }
-            input{ /* 입력란의 스타일 */
+            input, button{ /* 입력란, 버튼의 스타일 */
                 background-color: #041C3A;
                 border:2px solid #FFD966;
                 color:#FFD966;
@@ -65,17 +65,17 @@
                 font-weight: bold;
                 text-align: center;
             }
-            aside header{ /* 병원 홈페이지임을 명시하는 부분*/
+            aside header{ /* aside의 제목 header의 스타일 */
                 padding:10px;
                 width:100%;
                 text-align: center;
                 font-size: 160%;
             }
-            iframe{
+            iframe{ /* 병원 홈페이지 담는 iframe의 스타일*/
                 margin-top: 1%;
                 height: 85%;
             }
-            #submit{
+            #submit{ /* 제출 버튼 스타일 */
                 background-color: #041C3A;
                 border:4px solid #FFD966;
                 float: right;
@@ -84,12 +84,12 @@
                 margin-right: 40%;
                 font-size:25px;
             }
-            #submit:hover{
+            #submit:hover{ /* 제출 버튼에 마우스 올라오면 적용될 스타일 */
                 border:2px solid #FFD966;
                 background:maroon;
                 font-weight: bold;
             }
-            #goIntro{
+            #goIntro{ /* 홈으로 가는 링크의 스타일 */
                 width:6%; padding-top: 15px;
                 background-color: #041C3A;
                 position:fixed;
@@ -100,13 +100,10 @@
                 border: solid 5px #FFD966;
                 border-right: none; border-bottom: none;
           }
-          #goIntro:hover{
+          #goIntro:hover{ /* 홈으로 가는 링크에 마우스 올라오면 적용될 스타일 */
               color:rgb(231, 31, 58);
           }
-          #goIntro div:hover{
-            border-right: 40px solid rgb(231, 31, 58);
-          }
-          #goIntro div{
+          #goIntro div{ /* 홈으로 가는 링크에 버튼 같은 삼각형 만들어주기 */
             margin:auto;
             width: 0px;height: 0px;
             border-top:30px solid transparent;
@@ -114,62 +111,42 @@
             border-left: 40px solid none;
             border-right: 40px solid #FFD966;
           }
+          #goIntro div:hover{ /* 홈으로 가는 링크의 버튼 같은 삼각형 위에 마우스 올라오면 적용될 스타일 */
+            border-right: 40px solid rgb(231, 31, 58);
+          }
         </style>
+        
         <script>
-            var ge = null; // 그래픽 에디터 객체를 가리키는 변수
+            var ge = null; // 그래픽 에디터 객체를 담는 변수
             
-            function init() {
-                var canvas = null; // 캔버스 DOM 객체를 가리키는 변수
-                var context = null; // 캔버스에 그림을 그리는 도구 객체를 가리키는 변수
+            function init() { // 캔버스 만들기
+                var canvas = null; // 캔버스 DOM 객체를 담는 변수
+                var context = null; // 캔버스에 그림 그리는 도구 객체를 담는 변수
             
-                canvas = document.getElementById("myCanvas");
-                context = canvas.getContext("2d");
+                canvas = document.getElementById("myCanvas"); // id가 mycanvas인 태그 접근하기
+                context = canvas.getContext("2d"); // 2d 캔버스
             
                 ge = new GraphicEditor(canvas, context); // 그래픽 에디터 객체 생성
             }
             
-            function finish(){
-                var forms = [document.getElementsByClassName("Name"), document.getElementsByClassName("Age"), document.getElementsByClassName("Sex"),
-                             document.getElementsByClassName("Email"), document.getElementsByClassName("pic")];
-                var alertN = 0;
-                for(var i=0;i<5;i++){
-                    if(alertN != 0){break;}
-                    if(forms[i].value == null){
-                        alert('Please answer all the questions.');
-                        alertN += 1;
-                    }
-                    else{
-                        alert('Submission Completed.\n\nThank you :)');
-                    }
-                }
-                
-            }
-            
             class GraphicEditor { // 캔버스에 그림 그리는 자바스크립트 클래스
                 constructor(canvas, context) { // 생성자
-                    this.canvas = canvas;     // 프로퍼티 canvas 생성
+                    this.canvas = canvas; // 프로퍼티 canvas 생성
                     this.context = context; // 프로퍼티 context 생성
-                    this.startX = 0;    // 프로퍼티 startX 생성
-                    this.startY = 0;    // 프로퍼티 startY 생성
-                    this.drawing = false;    // 프로퍼티 drawing 생성
-                    // 선굵기와 색 초기화
+                    this.startX = 0;  // 프로퍼티 startX 생성
+                    this.startY = 0; // 프로퍼티 startY 생성
+                    this.drawing = false; // 프로퍼티 drawing 생성
+                    
                     this.context.lineWidth = 2; // 선 굵기를 2로 설정
+                    
                     // 이벤트 리스너 등록
                     this.canvas.onmousedown = function (e) { ge.down(e); }
                     this.canvas.onmouseup = function (e) { ge.up(e); }
                     this.canvas.onmousemove = function (e) { ge.move(e); }
                     this.canvas.onmouseout = function (e) { ge.out(e); }
-            
-                    // 이벤트 리스너가 canvas 객체에 달려 있기 때문에, 리스너가 실행되는 그 때
-                    // this는 canvas 객체를 가리키며, ge.down(e)를 this.down(e)로 한다면
-                    // 곧 canvas의 멤버 메소드 down(e)를 호출하는 것이 된다.
-                    // 하지만 canvas 객체에는 down(e) 메소드가 없기 때문에 
-                    // 실행 중에 오류가 발생한다.
-                    // 그러므로 전역 변수 ge를 두어, ge.down(e)를 호출하도록 하였음
-            
                 }
             
-                draw(curX, curY) {//(startX, startY)에서 (curX, curY) 까지 선그리는 메소드
+                draw(curX, curY) { //(startX, startY)에서 (curX, curY) 까지 선그리는 메소드
                     this.context.beginPath();
                     this.context.moveTo(this.startX, this.startY);
                     this.context.lineTo(curX, curY);
@@ -184,29 +161,58 @@
                 up(e) { this.drawing = false; } // 마우스 업 시 호출되는 메소드
 
                 move(e) { // 마우스를 움직이는 동안 계속 호출되는 메소드
-                    if(!this.drawing) return;
+                    if(!this.drawing) {return};
                     var curX = e.offsetX, curY = e.offsetY;
                     ge.draw(curX, curY);
                     this.startX = curX; this.startY = curY;
                 }
             
-                out(e) {
+                out(e) { // 마우스가 캔버스 바깥으로 나가는 순간 호출되는 메소드
                     this.drawing = false;
-                } // 마우스가 캔버스 바깥으로 나가는 순간 호출되는 메소드
+                }
             }
-
+            
+            function finish(){ // 제출 버튼 틀릭시 호출되는 함수 (답변 안 한 내용이 있는지 확인함)
+                 
+                // 폼 속 태그들을 담아 만든 리스트
+                var forms = [document.getElementsByClassName("Name"), document.getElementsByClassName("Age"), document.getElementsByClassName("Sex"),
+                             document.getElementsByClassName("Email"), document.getElementsByClassName("pic")];
+                
+                // 답변 안 한 질문 있는지 확인
+                var all = true; // 전부 답변 했는지에 대한 변수
+                for(var i=0;i<5;i++){ // 각 태그들 한번 씩 확인
+                    if(forms[i].value == null){ // 답변 안 했다면
+                        alert('Please answer all the questions.');
+                        all = flase;
+                        break;
+                    }
+                }
+                if(all == true){ //전부 답했다면
+                        alert('Submission Completed.\n\nThank you :)');
+                }
+             }
         </script>
+        
     </head>
     <body>
-        <section>
-            <header><strong>Diagnosis</strong></header>
-            <form>
+        <section> <!-- 페이지 제목과 폼을 담는 section -->
+            <header><strong>Diagnosis</strong></header> <!-- section의 제목을 담은 header -->
+            
+            <form> <!-- 입력받을 폼 -->
+                
+                <!-- 이름 입력 받기 -->
                 <label class="Name">
-                    <span>Name</span><input type="name" placeholder="Rha Hyun-Ah">
+                    <span>Name</span>
+                    <input type="text" placeholder="Rha Hyun-Ah"> <!-- placeholder로 입력 예시 보여주기 -->
                 </label>
+                
+                <!-- 나이 입력 받기 -->
                 <label class="Age">
-                    <span>American Age</span><input type="number" min="15" max="150" step="1.0" placeholder="20">
+                    <span>American Age</span>
+                    <input type="number" min="15" max="150" step="1.0" placeholder="20"> <!-- placeholder로 입력 예시 보여주기 -->
                 </label>
+                
+                <!-- 성별 입력 받기 -->
                 <label class="Sex">
                     <span>Sex</span>
                     <label style="display:inline-block;"><input type="radio" name="sex" value="man"> Man </label>
@@ -214,30 +220,45 @@
                     <label style="display:inline-block;"><input type="radio" name="sex" value="3"> Gender Queer </label>
                     <label style="display:inline-block;"><input type="radio" name="sex" value="alien"> Alien </label>
                 </label>
-                <label class="Email">
+                
+                <!-- 이메일 입력 받기 -->
+                <label class="Email"> 
                     <span>E-Mail</span>
-                    <input type="email" placeholder="****@****.com">
+                    <input type="email" placeholder="****@****.com"> <!-- placeholder로 입력 예시 보여주기 -->
                 </label>
+                
+                <!-- 그림 입력 받기 -->
                 <label class="pic">
                     <span><strong>Drawing Corner</strong></span> : Draw House, Tree, Mountain, River and You
                     <br><br><br>
+                    
+                    <!-- 캔버스 생성하기 -->
                     <body onload="init()">
-                        <input id="color" type="color" value="black" onchange="ge.context.strokeStyle=this.value">
-                        &lt;- Chage color here &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="button" value="Close Palette" style="padding:2px;"> &lt;- Close palette here
+                        <input id="color" type="color" value="black" onchange="ge.context.strokeStyle=this.value"> <!-- 캔버스에 그릴 색 정하는 팔레트 -->
+                        &lt;- Chage color here &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <!-- 색 바꿀 수 있다는 설명 -->
+                        
+                        <button style="padding:2px;"></button> <!-- 팔레트 닫기 버튼 -->
+                        &lt;- Close palette here <!-- 닫을 수 있다는 설명 -->
+                        
+                        <!-- 캔버스 공간 -->
                         <canvas id="myCanvas" style="background-color:wheat; margin-top:1%;" width="800px" height="250px"></canvas>
                     </body>
                 </label>
+                
+                <!-- 제출 버튼 -->
                 <label>
-                    <input id="submit" type="submit" value="submit" onclick="finish()">
+                    <input id="submit" type="submit" onclick="finish()"> <!-- 클릭 시 전부 답변했는지 확인 후 알람  -->
                 </label>
             </form>
         </section>
-        <aside>
-            <header>Cooperative Hospital<br>Homepage</header>
+        
+        <aside> <!-- 병원 홈페이지를 담는 aside -->
+            <header>Cooperative Hospital<br>Homepage</header> <!-- aside의 제목을 담은 header -->
             <iframe src="https://www.hufs.ac.kr/" name="lower" width="90%" height="90%"></iframe>
         </aside>
-        <a id="goIntro" href="인트로 페이지.html">
-            <div></div>
+        
+        <a id="goIntro" href="인트로 페이지.html"> <!-- 홈으로 돌아가는 링크 -->
+            <div></div> <!-- 버튼 모양 삼각형의 자리 -->
             Home
         </a>
     </body>
