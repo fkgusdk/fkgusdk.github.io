@@ -1,3 +1,6 @@
+<!-- 유료 서비스 페이지 -->
+<!-- 폼 제출하면 연게 병원으로 자료가 넘어가고, 사용자는 작성한 이메일로 결과를 받는 것이 목표인 페이지이나, 연계 병원이 없는 관계로 우선 폼 작성만을 구현 -->
+
 <HTML:5>
     <!DOCTYPE html>
     <html lang="en">
@@ -5,29 +8,28 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>유료서비스</title>
+        <title> Paid Service </title>
         <style>
             body{
                 background-color: #FFD966;
                 color:#041C3A;
             }
-            section{
+            section{ /* 페이지 제목과 폼을 담는 <section>의 스타일 */ 
                 width: 60%; height: 95%;
                 float: left;
                 background-color:#041C3A;
                 margin-left:5%;
                 margin-top: 1.5%;
             }
-            input{
+            input{ /* 입력란의 스타일 */
                 background-color: #041C3A;
                 border:2px solid #FFD966;
                 color:#FFD966;
             }
-            input:hover, input:focus{
-                border:2px solid #FFD966;
+            input:hover, input:focus{ /* 입력란에 마우스 올라가거나 focus 시 적용될 스타일 (배경색 바뀜) */
                 background:maroon;
             }
-            header{
+            section header{ /* section 속 페이지 제목을 담은 header의 스타일 */
                 width: 50%; height: 10%;
                 margin:auto;
                 background-color:#041C3A;
@@ -36,7 +38,7 @@
                 text-align:center;
                 margin-top: 3%;
             }
-            aside{
+            aside{ /* 해당 병원의 홈페이지를 담은 aside의 스타일 */
                 color:#FFD966;
                 margin-left:0.5%; margin-top: 1.5%;
                 width: 30%; height:93%;
@@ -45,25 +47,25 @@
                 text-align:center;
                 padding:0.5%;
             }
-            form{
+            form{ /* 제출할 폼의 스타일 */
                 color:#FFD966;
                 padding: 3%;
                 width: 70%;
                 margin:auto; margin-top:1%;
                 border: 4px solid #FFD966;
             }
-            label{
+            label{ /* 각 라벨의 공통 스타일 */
                 margin-bottom: 3.3%;
                 display:block;
             }
-            label span{ /* 각 라벨의 입력 종류 (이름,성별, 이메일 ...) */
+            label span{ /* 각 라벨의 이름(이름,성별, 이메일 ...) 관련 스타일 */
                 width: 30%;
                 display:inline-block;
                 font-size:100%;
                 font-weight: bold;
                 text-align: center;
             }
-            aside span{ /* 병원 홈페이지임을 명시하는 부분*/
+            aside header{ /* 병원 홈페이지임을 명시하는 부분*/
                 padding:10px;
                 width:100%; height: 15%;
                 text-align: center;
@@ -231,7 +233,7 @@
             </form>
         </section>
         <aside>
-            <span>Cooperative Hospital<br>Homepage</span>
+            <header>Cooperative Hospital<br>Homepage</header>
             <iframe src="https://www.hufs.ac.kr/" name="lower" width="90%" height="90%"></iframe>
         </aside>
         <a id="goIntro" href="인트로 페이지.html">
