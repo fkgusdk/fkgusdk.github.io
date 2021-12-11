@@ -126,6 +126,15 @@
                 ge = new GraphicEditor(canvas, context); // 그래픽 에디터 객체 생성
             }
             
+            fuction finish{
+                var message = confirm('Submission Completed! Thank you :)\nBack to Home?');
+                
+                if(message == true){
+                    src = url('인트로 페이지.html');
+                }
+                else{}
+            }
+            
             class GraphicEditor { // 캔버스에 그림 그리는 자바스크립트 클래스
                 constructor(canvas, context) { // 생성자
                     this.canvas = canvas;     // 프로퍼티 canvas 생성
@@ -209,7 +218,7 @@
                     </body>
                 </label>
                 <label>
-                    <input id="submit" type="submit" value="submit" onclick="javascript:confirm('Submission Completed!\nThank you :)\nBack to Home?')">
+                    <input id="submit" type="submit" value="submit" onclick="finish()">
                 </label>
             </form>
         </section>
