@@ -11,7 +11,7 @@
                 color:#FFD966;
                 text-align: center;
             }
-            hr{
+            hr{ /* <hr>의 스타일 */
                 height:2px;
                 background-color: #FFD966;
                 border-color: #FFD966;
@@ -20,14 +20,14 @@
                 margin-bottom: 8%;
                 margin-top: 8%
             }
-            #item{
+            #item{ /* 검색 키워드 입력받는 부분의 스타일 */
                 color:#FFD966;
                 background-color:#041C3A;
                 border-style:solid;
                 border-width: 3px;
                 border-color: #FFD966;
             }
-            #retrieve{
+            #retrieve{ /* 검색 버튼의 스타일 */
                 margin: 3px;
                 width:10%; height:10%;
                 border-style:none;
@@ -37,19 +37,16 @@
                 border-radius: 15px;
                 font-size:110%;
             }
-            #tips{
+            #tips{ /* 키워드 관련 정보를 출력/입력 하는 부분의 스타일 */
                 width: 80%;
                 height: 100%;
             }
-            exp{
-                font-size: 100%;
-            }
-            h1{
+            h1{ /* 제목들의 스타일 */
                 margin-top:-3%; margin-bottom: 7%;
                 font-style:italic;
                 text-shadow: 0px 0px 40px dodgerblue, 0 0 10px darkblue, 0px 0px 40px dodgerblue;
             }
-            textarea{
+            textarea{ /* textarea의 스타일 */
                 padding: 10px;
                 color:#FFD966;
                 border-color:#FFD966;
@@ -58,7 +55,7 @@
                 background-color:#041C3A ;
                 font-size: 170%;
             }
-            #save{
+            #save{ /* 저장 버튼의 스타일 */
                 width:10%; height:10%;
                 border-style:none;
                 background:#FFD966;
@@ -67,57 +64,70 @@
                 border-radius: 15px;
                 font-size:110%;
             }
-            button:hover, textarea:focus, input:focus{
+            button:hover, textarea:focus, input:focus{ /* 각 버튼과 textarea, input을 focus하는 동안 나타나는 스타일 (네온사인 같은 그림자)*/
                 box-shadow: 0px 0px 40px dodgerblue, 0 0 10px darkblue, 0px 0px 40px dodgerblue;
             }
         </style>
     </head>
     <body>
         <div style="margin:8%">
-            <h1><stong>Sharing Space</stong></h1>
+            <h1><stong>Sharing Space</stong></h1> <!-- 페이지 제목 -->
     
-            <spam style="font-size: 130%;">Key Word&nbsp;:&nbsp;</spam><input id="item" type="text" style="width:30%; height:12%;font-size: 120%; border-radius:15px;">
-            <button id="retrieve" onclick="retrieve()">Search</button><p><br>
-            <span id="keyword" style="font-size: 180%;">About what?</span><br><br>
-            <textarea id="tips" cols="50" rows="100"></textarea><br>
-            <exp> You can add your own tips by writing it down following text. (Maximum : 100 lines)</exp>
+            <!-- 키워드 입력 받는 부분 -->
+            <span style="font-size: 130%;">Key Word&nbsp;:&nbsp;</span>
+            <input id="item" type="text" style="width:30%; height:12%;font-size: 120%; border-radius:15px;"> <!-- 입력하는 부분 -->
+            <button id="retrieve" onclick="retrieve()">Search</button><p><br> <!-- 검색버튼 -->
+            
+            <!-- 검색 결과 출력 / 사용자가 추가 입력하는 부분 -->
+            <span id="keyword" style="font-size: 180%;">About what?</span><br><br> <!-- what?부분이 검색한 키워드로 변함 -->
+            <textarea id="tips" cols="50" rows="100"></textarea><br> <!-- 결과 출력 / 사용자입력 받는 부분 -->
+            <exp style="font-size: 100%;"> You can add your own tips by writing it down following text. (Maximum : 100 lines)</exp> <!-- 사용자가 수정할 수 있다는 설명 -->
             <br><br>
-            <button id="save" onclick="store()">Save</button>
+            <button id="save" onclick="store()">Save</button> <!-- 저장 버튼 -->
             <hr>
+            
+            <!-- 새로 수정/업로드 된 키워드와 그 관련 정보 출력하는 부분 -->
             <span style="font-size: 150%;">New tips were uploaded just now!</span><br><br>
-            <textarea id="newTips" cols="60" rows="6" style="width: 80%; height: 100%;"></textarea>
+            <textarea id="newTips" cols="60" rows="6" style="width: 80%; height: 100%;" readonly></textarea> <!-- 여기는 읽을 수만 있음 -->
         </div>
-        <script>
+        
+        
+        <script>  // 변경사항 보여주는 script
             window.addEventListener("storage", storageEventListener, false);
-            function storageEventListener(e) { // e는 StorageEvent 객체
-                var eventDetail = "Key Word : < " + e.key + " >\n\n" + e.newValue + "\n" ;
+            function storageEventListener(e) {
+                var eventDetail = "Key Word : < " + e.key + " >\n\n" + e.newValue + "\n" ; // 출력 형식
                 document.getElementById("newTips").innerHTML = eventDetail; //<textarea>에 출력
             }
         </script>
-        <script>
-            var item = document.getElementById("item");
-            var tips = document.getElementById("tips");
+        
+        <script> // 키워드 입력/ 관련 정보 출력/ 사용자가 정보 수정할 수 있도록 하는 script
             
-            function store() {
-                if (!window.localStorage) {
-                    alert("로컬스토리지를 지원하지 않습니다.");
+            var item = document.getElementById("item"); // id가 item인 곳
+            var tips = document.getElementById("tips"); // id가 tips인 곳
+            
+            function store() { // 키워드와 관련 정보 저장하는 함수
+                if (!window.localStorage) { // 로컬 스토리지 지원하지 않는 다면 알람창 내보내기
+                    alert("No local storage");
                     return;
                 }
-                localStorage.setItem(item.value, tips.value);
+                localStorage.setItem(item.value, tips.value); // 지원한다면 키워드와 관련 정보 저장
             }
-            function retrieve() {
-                if (!window.localStorage) {
-                    alert("로컬스토리지를 지원하지 않습니다.");
+            
+            function retrieve() { // 키워드로 정보 검색/출력하는 함수
+                if (!window.localStorage) { // 로컬 스토리지 지원하지 않는 다면 알람창 내보내기
+                    alert("No local storage");
                     return;
                 }
-                var val = localStorage.getItem(item.value);
-                if(val == null){
+                
+                var val = localStorage.getItem(item.value); // 로컬스토리지에서 해당 키워드와 매치되어있는 정보 받아오기
+                if(val == null){ // 정보 없다면 알람창 내보내기
                     alert(item.value + " : There is no information. Please add your special tips for others.");
                 }
-                else{
+                else{ // 있다면 tips에 해당 정보 저장 => id가 tips인 곳의 textarea에출력됨
                     tips.value = val;
                 }
-                if(item.value != ""){
+                
+                if(item.value != ""){ //키워드가 공란이 아니라면 About what?에서 what?을 해당 키워드로 변경
                     document.getElementById("keyword").innerHTML = "About &lt; " + item.value + " &gt;";
                 }
             }
