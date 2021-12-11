@@ -129,10 +129,12 @@
             function finish(){
                 var forms = [document.getElementsByClassName("Name"), document.getElementsByClassName("Age"), document.getElementsByClassName("Sex"),
                              document.getElementsByClassName("Email"), document.getElementsByClassName("pic")];
-                
+                var alertN = 0;
                 for(var i=0;i<5;i++){
-                    if(forms[i] == null){
+                    if(alertN != 0){break;}
+                    if(forms[i].value == null){
                         alert('Please answer all the questions.');
+                        alertN += 1;
                     }
                     else{
                         alert('Submission Completed.\n\nThank you :)');
