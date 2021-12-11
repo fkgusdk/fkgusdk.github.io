@@ -1,4 +1,6 @@
-<!--'Alt + B'로 웹브라우저를 실행-->
+<!-- 홈 화면 -->
+<!-- 사이트 이름과 간단한 소개, 각 메인 사이트로 가는 링크와 사용자 닉네임 입력, 해당 닉네임의 접속 횟수를 담고 있다. -->
+
 <HTML:5>
     <!DOCTYPE html>
     <html lang="en">
@@ -13,7 +15,8 @@
                 background-color : #041C3A;
                 color :#FFD966;
             }
-            #backImage{
+            #backImage{ /* 배경처럼 다뤄지는 태양의 코로나 이미지 관련 스타일 */
+                /* div는 사이트 내에서 항상 우측에 위치하며, 이미지는 그 div 안에서 우측에 위치하고, div 크기에 맞춰 이미지를 늘린다 */
                 height:100%; width:44%;
                 background-image: url("코로나.png");
                 background-size:cover;
@@ -21,48 +24,48 @@
                 position:fixed;
                 bottom:0px; right:0px;
                 background-repeat: no-repeat;
-                opacity:0.3;
-                text-align:center;
+                opacity:0.3; /* 이미지 투명도 */
             }
-            #welcome {
+            #welcome { /* 환영인사를 담는 부분의 스타일 */
                 font-size: 170%;
                 margin-left: 20%;
                 margin-top: 13%;
                 position: absolute;
             }
-            #siteName {
+            #siteName { /* 사이트 이름을 담는 부분의 스타일 */
                 margin-left: 20%;
                 margin-top: 15%;
                 position: absolute;
                 font-size: 360%;
+                /* 네온사인 반짝임 같은 애니메이션 적용 */
                 animation-name: neon;
-                animation-duration: 3s;
+                animation-duration: 2s;
                 animation-iteration-count: infinite;
             }
-            #introduce {
+            #introduce {  /* 간략한 소개를 담는 부분의 스타일 */
                 font-size: 110%;
                 margin-top: 21%;
                 margin-left: 20%;
                 position: absolute;
             }
-            #go{
+            #go{ /* 각 메인 페이지로 가는 링크들을 담은 div의 스타일 */
                 width: 35%;
                 margin-top:9%;
                 font-size: 25px;
                 position: absolute;
                 margin-left: 54%;
             }
-            a{
+            a{ /* 링크 스타일 */
                 display:block;
                 margin: 20%;
                 color:#FFD966;
                 text-decoration: none;
                 font-weight:bold;
             }
-            a:hover{
+            a:hover{ /* 링크에 마우스 올라가면 적용될 스타일 (네온사인 같은 그림자) */
                 text-shadow: 0px 0px 40px dodgerblue, 0 0 10px darkblue, 0px 0px 40px dodgerblue;
             }
-            @keyframes neon{
+            @keyframes neon{ /* 웹사이트 이름에 쓰일 애니메이션 (깜빡거리는 네온사인 효과) */
                 from{
                     text-shadow: 0px 0px 10px dodgerblue, 0 0 2px darkblue, 0px 0px 10px dodgerblue;
                 }
@@ -71,7 +74,9 @@
                 }
             }
             </style>
+        
             <script>
+                // 닉네임과 방문 횟수 관련 script
                 function GetCookie (name) {
                     var pairs = document.cookie.split(";"); // 쿠키문자열을 ;을 경계로 분할
                     for(var i=0; i<pairs.length; i++) {
@@ -91,14 +96,16 @@
     </head>
     <body>
         <script>
-            var username = GetCookie("username");
-                var count = GetCookie("count");
+             // 닉네임과 방문 횟수 관련 script
+                var username = GetCookie("username"); //닉네임
+                var count = GetCookie("count"); //방문횟수
                 var expire = new Date (); // 현재 시간
-                if (username == null) {
-                    count = 0;
-                    username = prompt("Please enter nickname you'll use in this website","");
-                    if (username == null) {username = "Unknown";}
-                    else {
+            
+                if (username == null) { //첫 방문
+                    count = 0; //방문 횟수 0
+                    username = prompt("Please enter nickname you'll use in this website",""); // 닉네임 입력 받기
+                    if (username == null) {username = "Unknown";} //입력 안 하면 Unkown으로 임의 지정
+                    else { //입력하면 닉네임 저장
                         expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000)); // 1년후
                         SetCookie("username",username,expire);
                     }
@@ -106,7 +113,10 @@
                 count++;
                 expire.setTime(expire.getTime() + (365 * 24 * 3600 * 1000)); // 1년후
                 SetCookie("count",count,expire);
+            
                 document.write("Your Nickname : "+ username +"<br>");
+            
+                //방문 횟수에 따라 인사말 달라지게 만들기
                 if(count==1){
                     document.write("It's your first visit! Please read the introduction below :)");
                 }
@@ -117,16 +127,18 @@
                     document.write(count+"th visit!<br>Thank you for loving this website :)");
                 }
         </script>
-        <div id="backImage"></div>
-        <div id="welcome">Welcome, we are</div>
-        <div id="siteName"><strong>Blue Corona</strong></div>
-        <div id="introduce">
+        
+        <div id="backImage"></div> <!-- 배경처럼 다뤄질 태양의 코로나 이미지의 공간 -->
+        
+        <div id="welcome">Welcome, we are</div> <!-- 인사말 -->
+        <div id="siteName"><strong>Blue Corona</strong></div> <!-- 사이트 이름 -->
+        <div id="introduce"> <!--간단한 소개 -->
             This site was made for people who suffer from "Corona Blue".<br><br>
             &lt;What's COVID-BLUE?&gt;<br>includes information about cause, symptoms and seriousness of Corona Blue.<br><br>
             &lt;Self-diagnosis&gt;<br>helps you to get Free or Paid service for Self-diagnosis.<br><br>
             &lt;Tips&gt;<br>provides tips for overcoming Corona Blue <br>and space to share your special tips for others.
         </div>
-        <div id="go">
+        <div id="go"> <!-- 각 메인 페이지로 가는 링크 모음 -->
             <a href="코로나블루에대하여.html">&gt;&gt; What's COVID-BLUE?</a>
             <a href="테스트선택.html">&gt;&gt; Diagnosis Service</a>
             <a href="극복법.html">&gt;&gt; Overcoming Tips</a>
