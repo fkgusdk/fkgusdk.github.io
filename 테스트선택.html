@@ -1,3 +1,5 @@
+<!-- 테스트 종류(유/무료) 선택하는 페이지 -->
+
 <HTML:5>
     <!DOCTYPE html>
     <html lang="en">
@@ -11,7 +13,7 @@
                 background-color: #FFD966;
                 color:#041C3A;
             }
-            #tit{
+            #tit{ /* 페이지 제목 관련 스타일*/
                 width: 40%;
                 margin: auto;
                 margin-top: 3.5%;
@@ -23,118 +25,108 @@
                 padding: 1.5%;
                 margin-bottom: 1.5%;
             }
-            #testType{
+            #testType{ /* 두 테스트 종류를 담은 표의 스타일*/
                 margin:auto;
             }
-            td{
+            td{ /* 각 셀의 공통 스타일 */
                 padding:40px;
             }
-            button{
-                border-style: hidden;
-                background-color:#FFD966;
+            button{ /* 버튼 스타일 */
+                width: 450px; height: 550px;
+                border-style: solid;
+                border-width: 4px;
+                border-color: #041C3A;
+                background-size: cover;
+                text-align:center;
+                color: #041C3A;
+                font-size: 20px;
+                padding: 10px;
             }
-            #free:hover, #pay:hover{
+            #free:hover, #pay:hover{ /*각 버튼에 마우스 올라가면 실행되는 스타일 (그림자)*/
                 box-shadow: 0 0 10px maroon, 0 0 25px red, 0 0 5px maroon;
             }
-            #free{
-                width: 450px; height: 550px;
-                border-style: solid;
-                border-width: 4px;
-                border-color: #041C3A;
+            #free{ /* 무료테스트 버튼 스타일 */
                 background-image: url("무료테스트배경.png");
-                background-size: cover;
-                text-align:center;
-                color: #041C3A;
-                font-size: 20px;
-                padding: 10px;
             }
-            #pay{
-                width: 450px; height: 550px;
-                border-style: solid;
-                border-width: 4px;
-                border-color: #041C3A;
+            #pay{ /* 유료테스트 버튼 스타일 */
                 background-image: url("유료테스트배경.png");
-                background-size: cover;
-                text-align:center;
-                color: #041C3A;
-                font-size: 20px;
-                padding: 10px;
             }
-            p.big{
+            p.big{ /*버튼 내부 글 중에서 big 클래스인 부분 스타일*/ 
                 font-size:50px;
             }
-            p{
+            p{ /* 버튼 내부 글 들의 스타일*/
                 padding: 10px;
                 backdrop-filter: blur(30px);
-                color: #041C3A;
                 font-size:20px;
             }
-            exp{
+            exp{ /*무료테스트 버튼 내부 글 중 KCDC에 대한 설명 부분의 스타일*/
                 font-size: 15px;
             }
-            #goIntro{
+            #goIntro{ /*인트로페이지로 가는 버튼형식 부분의 스타일*/
                 width:5%;
-            position:fixed;
-            top:10%; right: 10%;
-            text-decoration: none;
-            padding: 2px;
-            border: solid 2px #FFD966;
-            color: maroon;
-            text-align:center;
-          }
-          #goIntro:hover{
-            border: solid 2px maroon;
-          }
-          #goIntro div{
-            margin:auto;
-            width: 0px;height: 0px;
-            border-top:30px solid transparent;
-            border-bottom:30px solid transparent;
-            border-left: 40px solid none;
-            border-right: 40px solid maroon;
-          }
+                position:fixed;
+                top:10%; right: 10%;
+                text-decoration: none;
+                padding: 2px;
+                border: solid 2px #FFD966;
+                color: maroon;
+                text-align:center;
+            }
+            #goIntro:hover{ /*인트로 페이지로 가는 버튼형식 부분 위로 마우스 올라갈 때 보이는 스타일 (테두리 생김) */
+                border: solid 2px maroon;
+            }
+            #goIntro div{ /*인트로 페이지로 가는 버튼 형식 도형부분 (삼각형)*/
+                margin:auto;
+                width: 0px;height: 0px;
+                border-top:30px solid transparent;
+                border-bottom:30px solid transparent;
+                border-left: 40px solid none;
+                border-right: 40px solid maroon;
+            }
         </style>
     </head>
     <body>
-        <div id="tit">
+        <div id="tit"> <!-- 페이지 제목 부분 -->
             <strong>Service Type</strong>
         </div>
-        <table id="testType">
+        <table id="testType"> <!-- 두 종류의 버튼을 담을 표 -->
             <tbody>
                 <tr>
                     <td>
-                        <a href="무료서비스.html">
-                            <button type=button>
-                                <div id="free">
+                        <a href="무료서비스.html"> <!-- 무료테스트 부분 (클릭 시 무료서비스 페이지로 이동)-->
+                            <button id="free" type=button>
+                                    <!-- 버튼 제목 -->
                                     <p class="big"><strong>Free Service</strong></p>
+                                    <!-- 테스트 설명 -->
                                     <p><strong>If you select this service,<br>
                                     You'll meet simple checklist based on KCDC.<br>
-                                    <exp>( Korea Centers for Diseas Control and Prevention )</exp><br>
+                                    <exp>( Korea Centers for Diseas Control and Prevention )</exp><br> <!-- KCDC 설명 -->
                                     Answer the questions and Check the result.<br><br>
                                     It's FREE anyway!
                                 </strong></p>
+                                    <!-- 가격 -->
                                     <p class="big"><strong style="font-style:italic"> 0 $ </strong></p>
-                                </div>
                             </button>
                         </a>
                     </td>
                     <td>
-                        <a href="유료서비스.html">
-                            <button type=button>
-                                <div id="pay">
+                        <a href="유료서비스.html"> <!-- 유료테스트 버튼 (클릭 시 유료서비스 페이지로 이동)-->
+                            <button id="pay" type=button>
+                                    <!-- 버튼 제목 -->
                                     <p class="big"><strong>Paid Service</strong></p>
+                                    <!-- 테스트 설명 -->
                                     <p><strong>If you draw picture about following keywords,<br>
                                     Hospital will diagnose your condition from picture you draw.<br>
                                     You can get the report through e-mail in 2 days.</strong></p>
+                                    <!-- 가격 -->
                                     <p class="big"><strong style="font-style:italic"> 4 $ </strong></p>
-                                </div>
                             </button>
                         </a>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <a id="goIntro" href="인트로 페이지.html">
+        <a id="goIntro" href="인트로 페이지.html"> <!-- 인트로 페이지로 가기 -->
             <div></div>
             Home
         </a>
