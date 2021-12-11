@@ -127,12 +127,18 @@
             }
             
             function finish(){
-                var message = confirm('Submission Completed. Thank you :)\n\n\nBack to Home?');
+                var forms = [document.getElementsByClassName("Name"), document.getElementsByClassName("Age"), document.getElementsByClassName("Sex"),
+                             document.getElementsByClassName("Email"), document.getElementsByClassName("pic")];
                 
-                if(message == true){
-                    location.href = "인트로 페이지.html";
+                for(var i=0;i<5;i++){
+                    if(forms[i] == null){
+                        alert('Please answer all the questions.');
+                    }
+                    else{
+                        alert('Submission Completed.\n\nThank you :)');
+                    }
                 }
-                else{}
+                
             }
             
             class GraphicEditor { // 캔버스에 그림 그리는 자바스크립트 클래스
@@ -191,24 +197,24 @@
         <section>
             <header><strong>Diagnosis</strong></header>
             <form>
-                <label>
+                <label class="Name">
                     <span>Name</span><input type="name" placeholder="Rha Hyun-Ah">
                 </label>
-                <label>
+                <label class="Age">
                     <span>American Age</span><input type="number" min="15" max="150" step="1.0" placeholder="20">
                 </label>
-                <label>
+                <label class="Sex">
                     <span>Sex</span>
                     <label style="display:inline-block;"><input type="radio" name="sex" value="man"> Man </label>
                     <label style="display:inline-block;"><input type="radio" name="sex" value="woman"> Woman </label>
                     <label style="display:inline-block;"><input type="radio" name="sex" value="3"> Gender Queer </label>
                     <label style="display:inline-block;"><input type="radio" name="sex" value="alien"> Alien </label>
                 </label>
-                <label>
+                <label class="Email">
                     <span>E-Mail</span>
                     <input type="email" placeholder="****@****.com">
                 </label>
-                <label>
+                <label class="pic">
                     <span><strong>Drawing Corner</strong></span> : Draw House, Tree, Mountain, River and You
                     <br><br><br>
                     <body onload="init()">
