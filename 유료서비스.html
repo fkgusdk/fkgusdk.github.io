@@ -21,7 +21,7 @@
                 margin-left:5%;
                 margin-top: 1.5%;
             }
-            input, button{ /* 입력란, 버튼의 스타일 */
+            input{ /* 입력란, 버튼의 스타일 */
                 background-color: #041C3A;
                 border:2px solid #FFD966;
                 color:#FFD966;
@@ -176,11 +176,11 @@
                  
                 // 폼 속 태그들을 담아 만든 리스트
                 var forms = [document.getElementsByClassName("Name"), document.getElementsByClassName("Age"), document.getElementsByClassName("Sex"),
-                             document.getElementsByClassName("Email"), document.getElementsByClassName("pic")];
+                             document.getElementsByClassName("Email")];
                 
                 // 답변 안 한 질문 있는지 확인
                 var all = true; // 전부 답변 했는지에 대한 변수
-                for(var i=0;i<5;i++){ // 각 태그들 한번 씩 확인
+                for(var i=0;i<4;i++){ // 각 태그들 한번 씩 확인
                     if(forms[i].value == null){ // 답변 안 했다면
                         alert('Please answer all the questions.');
                         all = flase;
@@ -229,7 +229,6 @@
                 
                 <!-- 그림 입력 받기 -->
                 <label class="pic">
-                    <input>
                     <span><strong>Drawing Corner</strong></span> : Draw House, Tree, Mountain, River and You
                     <br><br><br>
                     
@@ -238,7 +237,7 @@
                         <input id="color" type="color" value="black" onchange="ge.context.strokeStyle=this.value"> <!-- 캔버스에 그릴 색 정하는 팔레트 -->
                         &lt;- Chage color here &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <!-- 색 바꿀 수 있다는 설명 -->
                         
-                        <button style="padding:2px;"></button> <!-- 팔레트 닫기 버튼 -->
+                        <input type="button" style="padding:2px;"></button> <!-- 팔레트 닫기 버튼 -->
                         &lt;- Close palette here <!-- 닫을 수 있다는 설명 -->
                         
                         <!-- 캔버스 공간 -->
