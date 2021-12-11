@@ -172,25 +172,6 @@
                 }
             }
             
-            function finish(){ // 제출 버튼 틀릭시 호출되는 함수 (답변 안 한 내용이 있는지 확인함)
-                 
-                // 폼 속 태그들을 담아 만든 리스트
-                var forms = [document.getElementsByClassName("Name"), document.getElementsByClassName("Age"), document.getElementsByClassName("Sex"),
-                             document.getElementsByClassName("Email")];
-                
-                // 답변 안 한 질문 있는지 확인
-                var all = true; // 전부 답변 했는지에 대한 변수
-                for(var i=0;i<4;i++){ // 각 태그들 한번 씩 확인
-                    if(forms[i].value == null){ // 답변 안 했다면
-                        alert('Please answer all the questions.');
-                        all = flase;
-                        break;
-                    }
-                }
-                if(all == true){ //전부 답했다면
-                        alert('Submission Completed.\n\nThank you :)');
-                }
-             }
         </script>
         
     </head>
@@ -247,7 +228,8 @@
                 
                 <!-- 제출 버튼 -->
                 <label>
-                    <input id="submit" type="submit" value="submit" onclick="finish()"> <!-- 클릭 시 전부 답변했는지 확인 후 알람  -->
+                    <input id="submit" type="submit" value="submit" onclick="javascript:alert('Submission Completed.\n\nThank you :')">
+                    <!-- 클릭 시 제출 료 알람  -->
                 </label>
             </form>
         </section>
