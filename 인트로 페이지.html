@@ -26,16 +26,14 @@
                 background-repeat: no-repeat;
                 opacity:0.3; /* 이미지 투명도 */
             }
+            #Intro{
+                margin-top: 20%;
+                margin-left: 10%;
+            }
             #welcome { /* 환영인사를 담는 부분의 스타일 */
                 font-size: 170%;
-                margin-left: 20%;
-                margin-top: 13%;
-                position:absolute;
             }
             #siteName { /* 사이트 이름을 담는 부분의 스타일 */
-                position:absolute;
-                margin-left: 20%;
-                margin-top: 15%;
                 font-size: 360%;
                 /* 네온사인 반짝임 같은 애니메이션 적용 */
                 animation-name: neon;
@@ -43,10 +41,7 @@
                 animation-iteration-count: infinite;
             }
             #introduce {  /* 간략한 소개를 담는 부분의 스타일 */
-                position:absolute;
                 font-size: 110%;
-                margin-top: 21%;
-                margin-left: 20%;
             }
             #go{ /* 각 메인 페이지로 가는 링크들을 담은 div의 스타일 */
                 width: 35%;
@@ -126,7 +121,7 @@
                     document.write(count+"th visit!<br>Thank you for loving this website :)");
                 }
         </script>
-        
+        <div id="Intro">
         <div id="backImage"></div> <!-- 배경처럼 다뤄질 태양의 코로나 이미지의 공간 -->
         
         <div id="welcome">Welcome, we are</div> <!-- 인사말 -->
@@ -136,6 +131,7 @@
             &lt;What's COVID-BLUE?&gt;<br>includes information about cause, symptoms and seriousness of Corona Blue.<br><br>
             &lt;Self-diagnosis&gt;<br>helps you to get Free or Paid service for Self-diagnosis.<br><br>
             &lt;Tips&gt;<br>provides tips for overcoming Corona Blue <br>and space to share your special tips for others.
+        </div>
         </div>
         <div id="go"> <!-- 각 메인 페이지로 가는 링크 모음 -->
             <a href="코로나블루에대하여.html">&gt;&gt; What's COVID-BLUE?</a>
