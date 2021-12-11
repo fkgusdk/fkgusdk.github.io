@@ -1,3 +1,6 @@
+<!-- 결제페이지 -->
+<!-- 유료페이지를 선택한 사람들에게 결제가 완료됐음을 알리고 유료 테스트 페이지로 넘어가는 페이지 -->
+
 <HTML:5>
     <!DOCTYPE html>
     <html lang="en">
@@ -11,13 +14,13 @@
                 background-color: #FFD966;
                 color: #041C3A;
             }
-            #tit {
+            #tit { /* 페이지 제목 스타일 */
                 font-size: 500%;
                 font-style:italic;
                 text-align: center;
                 margin-top: 3%;
             }
-            #notice{
+            #notice{ /* 결제 정보를 알려주는 글 부분의 스타일 */
                 width: 50%;
                 height: 60%;
                 margin:auto;
@@ -30,21 +33,21 @@
                 font-size: 130%;
                 padding-top: 2%;
             }
-            @keyframes textColorAnimation {
+            @keyframes textColorAnimation { /* 테스트 하러 가는 링크에 적용될 애니메이션 (글자 색상 변경) */
                 0% {  color : blue;}
                 50% {  color : green;}
                 100% { color : red;}
             }
-            #button{
+            #button{ /* 테스트 하러 가는 링크의 스타일 */
                 background-color:black;
                 padding: 2%;
                 border-radius : 10px 10px;
-                text-decoration: none;
+                text-decoration: none; /* 링크 밑줄 없애기 */
             }
-            #button:hover{
+            #button:hover{ /* 테스트로 넘어가는 링크 부분에 마우스 올라가면 적용되는 스타일 (글자에 네온사인 같은 그림자) */
                 text-shadow: 0px 0px 4px goldenrod, 2px 2px 4px orange, 0px 0px 4px goldenrod;
             }
-            #notice span{
+            #notice span{ /* 결제 정보 알려주는 부분 속 span (확인 버튼의 글 부분)에 적용될 스타일 */
                 animation-name: textColorAnimation;
                 animation-duration: 2s;
                 animation-iteration-count: infinite;
@@ -52,35 +55,35 @@
                 font-size: 130%;
                 padding: 10px;
             }
-            #goIntro{
-            width:8%;
-            position:fixed;
-            top:10%; right: 10%;
-            text-decoration: none;
-            padding: 2px;
-            border: solid 2px #FFD966;
-            color: maroon;
-            text-align:center;
+            #goIntro{ /* 홈으로 돌아가는 링크의 스타일 */
+               width:8%;
+               position:fixed;
+               top:10%; right: 10%;
+               text-decoration: none; /* 링크 밑줄 없애기 */
+               padding: 2px;
+               border: solid 2px #FFD966;
+               color: maroon;
+               text-align:center;
           }
-          #goIntro:hover{
-            border: solid 2px maroon;
-            border-radius: 22px 22px 20px 0px;
+          #goIntro:hover{ /* 홈으로 돌아가는 링크에 마우스 올라가면 보이는 스타일 (테두리 스타일) */
+              border: solid 2px maroon;
+              border-radius: 22px 22px 20px 0px;
           }
-          #goIntro div{
-            margin:auto;
-            width: 0px;height: 0px;
-            border-top:30px solid transparent;
-            border-bottom:30px solid transparent;
-            border-left: 40px solid none;
-            border-right: 40px solid maroon;
+          #goIntro div{ /* 홈으로 돌아가는 링크에 버튼같은 삼각형 만들기 */
+              margin:auto;
+              width: 0px;height: 0px;
+              border-top:30px solid transparent;
+              border-bottom:30px solid transparent;
+              border-left: 40px solid none;
+              border-right: 40px solid maroon;
           }
         </style>
     </head>
     <body>
-        <div id="tit">
+        <div id="tit"> <!-- 페이지 제목 -->
             <strong>Payment</strong>
         </div>
-        <div id="notice">
+        <div id="notice"> <!-- 결제 정보 -->
             <h1>4$</h1>
             <br>
             Thank you for using our survice.<br>
@@ -90,10 +93,10 @@
             Pay to us, and go to check now.
             <br><br><br>
             <div>
-                <a href ="유료서비스.html" id="button"><span>I already pay.</span></a>
+                <a href ="유료서비스.html" id="button"><span>Okay, Let's go !</span></a> <!-- 확인 버튼으로, 누르면 테스트 페이지로 넘어감 -->
             </div>
         </div>
-        <a id="goIntro" href="테스트선택.html">
+        <a id="goIntro" href="테스트선택.html"> <!-- 테스트 선택하는 페이지로 돌아가기 -->
             <div></div>
             choice agin
         </a>
